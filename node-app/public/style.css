@@ -1,0 +1,67 @@
+/* Gig-poster theme - shared by Node (public/) and JSP (webapp/) */
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;600&display=swap');
+
+:root {
+  --paper: #f4efe6; --ink: #161616; --muted: #6b665e; --line: #161616;
+  --accent: #e8442e; --soft: #ebe4d6;
+}
+* { box-sizing: border-box; }
+body { margin: 0; font-family: 'Archivo', system-ui, sans-serif; color: var(--ink); background: var(--paper); }
+.wrap { max-width: 1000px; margin: 0 auto; padding: 32px 16px 64px; }
+a { color: var(--ink); }
+
+/* Header */
+.hero { border-bottom: 3px solid var(--ink); margin-bottom: 24px; padding-bottom: 14px; }
+.hero h1 { font-family: 'Archivo Black', sans-serif; font-size: clamp(2.4rem, 7vw, 4.2rem);
+  text-transform: uppercase; line-height: .95; margin: 0; letter-spacing: -1px; }
+.hero h1 em { font-style: normal; color: var(--accent); }
+.hero p { color: var(--muted); margin: 10px 0 0; }
+.tag { font-size: .7rem; padding: 2px 8px; border: 1.5px solid var(--ink); text-transform: uppercase; letter-spacing: 1px; color: var(--ink); }
+
+/* Toolbar + inputs */
+.bar { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 28px; }
+input, textarea { width: 100%; padding: 12px 14px; border: 2px solid var(--ink); border-radius: 0;
+  background: #fff; color: var(--ink); font: inherit; }
+input:focus, textarea:focus { outline: none; box-shadow: 4px 4px 0 var(--accent); }
+.bar input { flex: 1; min-width: 200px; }
+label { display: block; margin-bottom: 14px; font-weight: 600; font-size: .85rem; text-transform: uppercase; letter-spacing: .5px; }
+label input, label textarea { margin-top: 6px; text-transform: none; font-weight: 400; letter-spacing: 0; }
+
+/* Buttons */
+.btn, button { display: inline-block; cursor: pointer; font: inherit; font-weight: 600; text-decoration: none;
+  padding: 11px 18px; border: 2px solid var(--ink); border-radius: 0; background: var(--ink); color: var(--paper);
+  text-transform: uppercase; font-size: .85rem; letter-spacing: .5px; transition: transform .1s, box-shadow .1s; }
+.btn:hover, button:hover { transform: translate(-2px, -2px); box-shadow: 3px 3px 0 var(--accent); }
+.btn.ghost, button.ghost { background: transparent; color: var(--ink); }
+button.danger { background: transparent; color: var(--accent); border-color: var(--accent); }
+.small { padding: 6px 10px; font-size: .75rem; }
+
+/* Event cards */
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 22px; }
+.card { background: #fff; border: 2px solid var(--ink); transition: transform .15s, box-shadow .15s; }
+.card:hover { transform: translate(-3px, -3px); box-shadow: 6px 6px 0 var(--ink); }
+.card .top { display: flex; gap: 14px; align-items: stretch; border-bottom: 2px solid var(--ink); }
+.date-badge { background: var(--accent); color: #fff; padding: 10px 14px; text-align: center; line-height: 1; min-width: 70px; }
+.date-badge b { display: block; font-family: 'Archivo Black', sans-serif; font-size: 1.9rem; }
+.date-badge span { font-size: .75rem; text-transform: uppercase; letter-spacing: 2px; }
+.card .top h3 { margin: 0; align-self: center; padding: 10px 10px 10px 0;
+  font-family: 'Archivo Black', sans-serif; font-size: 1.2rem; text-transform: uppercase; line-height: 1.1; }
+.card .top h3 a { text-decoration: none; }
+.card .body { padding: 16px; }
+.meta { color: var(--muted); font-size: .9rem; margin: 0 0 10px; }
+.meter { height: 10px; border: 2px solid var(--ink); background: var(--soft); margin: 6px 0 6px; }
+.meter i { display: block; height: 100%; background: var(--ink); }
+.actions { display: flex; gap: 8px; margin-top: 14px; align-items: center; flex-wrap: wrap; }
+.actions form { margin: 0; }
+.empty { text-align: center; padding: 60px 20px; color: var(--muted); border: 2px dashed var(--ink); }
+
+/* Panels + attendee list */
+.panel { background: #fff; border: 2px solid var(--ink); padding: 22px; margin-bottom: 20px; }
+.panel h2 { font-family: 'Archivo Black', sans-serif; text-transform: uppercase; font-size: 1.2rem; }
+.row { display: flex; gap: 10px; flex-wrap: wrap; }
+.row input { flex: 1; min-width: 180px; }
+.people { list-style: none; padding: 0; margin: 0; }
+.people li { display: flex; align-items: center; gap: 12px; padding: 12px 0; border-top: 1px solid #d8d0c2; }
+.avatar { width: 38px; height: 38px; background: var(--ink); color: var(--paper); display: grid; place-items: center; font-weight: 600; }
+.people .who { flex: 1; } .people .who small { display: block; color: var(--muted); }
+.error { border: 2px solid var(--accent); color: var(--accent); padding: 10px 14px; font-weight: 600; }

@@ -1,0 +1,19 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title><%= event ? 'Edit' : 'New' %> Event</title><link rel="stylesheet" href="/style.css"></head>
+<body><div class="wrap" style="max-width:640px">
+<a href="/">&larr; Back to events</a>
+<header class="hero"><h1><%= event ? 'Edit event' : 'New event' %></h1><p>Fill in the event details.</p></header>
+<form class="panel" method="post" action="<%= event ? '/events/' + event._id + '/update' : '/events' %>">
+  <label>Event name <input name="title" required value="<%= event ? event.title : '' %>" placeholder="Friday Rooftop Jam"></label>
+  <label>Venue <input name="venue" required value="<%= event ? event.venue : '' %>" placeholder="Harare"></label>
+  <div class="row">
+    <label style="flex:1">Date <input type="date" name="date" required
+       value="<%= event ? new Date(event.date).toISOString().slice(0,10) : '' %>"></label>
+    <label style="flex:1">Capacity <input type="number" min="1" name="capacity" required value="<%= event ? event.capacity : 50 %>"></label>
+  </div>
+  <label>Description <textarea name="description" rows="4"><%= event ? event.description : '' %></textarea></label>
+  <button><%= event ? 'Save changes' : 'Create event' %></button>
+  <a class="btn ghost" href="/">Cancel</a>
+</form>
+</div></body></html>
